@@ -60,11 +60,11 @@ Function Write-LogMessage
 		[Parameter()][bool]$quiet=$true
 	)
 
+	$dateTime = [string] (get-date -format yyyy.MM.dd-HHmm)
 
 	# Establish the path we will log to. If a global variable exists this will
 	# be used so that subsequent calls during execution don't go to a different
 	# file.
-	$dateTime = [string] (get-date -format yyyy.MM.dd-HHmm)
 	if($null -eq $script:DaveHopeLoggingPath)
 	{
 		if(-not $Directory)
@@ -88,9 +88,6 @@ Function Write-LogMessage
 
 	# Check that our log path exists, including all sub-directories.
 	$dir = Split-Path $logPath
-	$dt = [string] (get-date -format yyyy.MM.dd-HHmm)
-	$logMsg = "[$dt] $msg"
-
 	if(-not (Test-Path $dir))
 	{
 		New-item $dir -ItemType Directory | Out-Null
@@ -100,6 +97,7 @@ Function Write-LogMessage
 		New-item $logPath -ItemType File | Out-Null
 	}
 
+	$logMsg = "[$dateTime] $msg"
 	# If an exception has been given, dump that too.
 	if($null -ne $exception)
 	{

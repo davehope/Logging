@@ -1,6 +1,6 @@
 @{
     RootModule = 'DaveHope.Logging.psm1'
-    ModuleVersion = '1.1.1'
+    ModuleVersion = '1.1.2'
     GUID = 'e2817eb3-69a0-45b0-83a6-f12f3853c480'
     Author = 'Dave Hope'
     Copyright = '(c) 2020 Dave Hope. All Rights Reserved.'
