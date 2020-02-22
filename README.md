@@ -8,7 +8,10 @@ other than importing this module. Targets PowerShell 4.0 and later (supporting
 
 Import the module
 ```
-Import-Module DaveHope.Logging or require it explicitly:
+Import-Module DaveHope.Logging
+```
+or require it explicitly:
+```
 #Requires -Module @{ ModuleName="DaveHope.Logging"; ModuleVersion="1.1.1" }
 ```
 
